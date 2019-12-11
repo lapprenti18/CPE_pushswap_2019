@@ -6,6 +6,7 @@
 ##
 
 SRC	=	my_amazing_sorter.c	\
+		operation.c	\
 
 NAME	=	push_swap
 
