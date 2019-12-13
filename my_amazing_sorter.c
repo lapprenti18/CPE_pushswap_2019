@@ -20,7 +20,7 @@ void    display(int size, lulu_t *lulu)
     lulu->popo[lulu->louis + 1] = 'b';
     lulu->popo[lulu->louis + 2] = ' ';
     lulu->louis += 3;
-    if (lulu->louis > 1999999997) {
+    if (lulu->louis > 99997) {
     write(1, lulu->popo , lulu->louis);
     lulu->louis = 0;
     }
@@ -29,7 +29,7 @@ void    display(int size, lulu_t *lulu)
         lulu->popo[lulu->louis + 1] = 'a';
         lulu->popo[lulu->louis + 2] = ' ';
         lulu->louis += 3;
-    if (lulu->louis > 1999999997) {
+    if (lulu->louis > 99997) {
         write(1, lulu->popo , lulu->louis);
         lulu->louis = 0;
     }
@@ -55,7 +55,7 @@ void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
             lulu->popo[lulu->louis + 1] = 'a';
             lulu->popo[lulu->louis + 2] = ' ';
             lulu->louis += 3;
-            if (lulu->louis > 1999999997) {
+            if (lulu->louis > 99997) {
                 write(1, lulu->popo , lulu->louis);
                 lulu->louis = 0;
             }
@@ -64,7 +64,7 @@ void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
         lulu->popo[lulu->louis + 1] = 'b';
         lulu->popo[lulu->louis + 2] = ' ';
         lulu->louis += 3;
-        if (lulu->louis > 1999999997) {
+        if (lulu->louis > 99997) {
             write(1, lulu->popo , lulu->louis);
             lulu->louis = 0;
         }
@@ -91,7 +91,7 @@ int main(int ac, char **av)
     int *array;
     int *arry2;
     lulu_t lulu;
-    lulu.popo = malloc(sizeof(char) * 2000000000);
+    lulu.popo = malloc(sizeof(char) * 100000);
     lulu.louis = 0;
 
     if (ac == 1)
