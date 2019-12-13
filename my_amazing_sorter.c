@@ -63,15 +63,17 @@ int main(int ac, char **av)
     if (ac == 1)
         return (84);
     if (ac == 2) {
+        write(1 , "\n", 1);
         return (0);
     }
     array = malloc(sizeof(int) * (ac - 1));
     arry2 = malloc(sizeof(int) * (ac - 1));
     array = array_empty(array, ac, av);
     if (array_good(array, ac - 1) == 0) {
+        write(1 , "\n", 1);
         return (0);
     }
     my_amazing_sorter(array, (ac - 1), arry2);
     write(1, "\n", 1);
-    return 0;
+    return (0);
 }
