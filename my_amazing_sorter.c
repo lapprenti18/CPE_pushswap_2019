@@ -42,6 +42,7 @@ void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
 {
     int nbr_min;
     int jsp = 0;
+    int z = 0;
 
     for (int temp = 0; temp != size - 1; temp += 1) {
         nbr_min = nbr_min_position(array, size);
