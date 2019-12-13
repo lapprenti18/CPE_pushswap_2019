@@ -110,5 +110,6 @@ int main(int ac, char **av)
     my_amazing_sorter(array, (ac - 1), arry2, &lulu);
     write(1, "\n", 1);
     free (lulu.popo);
+    
     return (0);
 }
