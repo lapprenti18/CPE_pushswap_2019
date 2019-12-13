@@ -42,26 +42,15 @@ void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
 {
     int nbr_min;
     int jsp = 0;
-    int z = 0;
 
     for (int temp = 0; temp != size - 1; temp += 1) {
         nbr_min = nbr_min_position(array, size);
-        if (nbr_min < (size - 1) /2) {
+        if (nbr_min < size / 2) {
             for (int a = 0; a != nbr_min; a += 1) {
                 if (array[0] == 36)
                     jsp += 1;
                 rotate_left(array, size);
             }
-            z = 0;
-        } else {
-            for (int a = 0; a != (size - nbr_min); a += 1) {
-                if (array[0] == 36)
-                    jsp += 1;
-                rotate_right(array, size);
-            }
-            z = 1;
-        }
-        if (z == 0) {
             for (int b = 0; b + jsp < nbr_min; b += 1) {
                 lulu->popo[lulu->louis] = 'r';
                 lulu->popo[lulu->louis + 1] = 'a';
@@ -73,13 +62,18 @@ void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
                 }
             }
         } else {
-            for (int b = 0; b + jsp < nbr_min; b += 1) {
+            for (int a = 0; a != (size - nbr_min); a += 1) {
+                if (array[0] == 36)
+                    jsp += 1;
+                rotate_right(array, size);
+            }
+            for (int b = 0; b + jsp < (size - nbr_min); b += 1) {
                 lulu->popo[lulu->louis] = 'r';
                 lulu->popo[lulu->louis + 1] = 'r';
                 lulu->popo[lulu->louis + 2] = 'a';
                 lulu->popo[lulu->louis + 3] = ' ';
                 lulu->louis += 4;
-                if (lulu->louis > 99996) {
+                if (lulu->louis > 99997) {
                     write(1, lulu->popo , lulu->louis);
                     lulu->louis = 0;
                 }
