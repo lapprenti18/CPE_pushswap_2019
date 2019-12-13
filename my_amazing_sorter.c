@@ -16,9 +16,17 @@
 
 void    display(int size)
 {
+    char *t = malloc(sizeof(char) * (3 * (size - 1)));
+    int b = 0;
+
     write (1, "pb ", 3);
-    for (int a = 0; a != size - 1; a += 1)
-        write(1, "pa ", 3);
+    for (int a = 0; a < (size - 1); a += 1) {
+        t[b] = 'p';
+        t[b + 1] = 'a';
+        t[b + 2] = ' ';
+        b += 3;
+    }
+    write(1, t, b);
     write(1, "pa", 2);
 }
 
