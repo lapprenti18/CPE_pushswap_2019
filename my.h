@@ -12,3 +12,9 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <stdio.h>
+
+typedef struct lulu_s
+{
+    char *popo;
+    int louis;
+}lulu_t;
