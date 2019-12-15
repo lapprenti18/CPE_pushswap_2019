@@ -14,28 +14,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void    display(int size, lulu_t *lulu)
+int    add_or_not(int *array, int jsp)
 {
-    lulu->popo[lulu->louis] = 'p';
-    lulu->popo[lulu->louis + 1] = 'b';
-    lulu->popo[lulu->louis + 2] = ' ';
-    lulu->louis += 3;
-    if (lulu->louis > 99997) {
-    write(1, lulu->popo , lulu->louis);
-    lulu->louis = 0;
+    if (array[0] == 36) {
+        jsp += 1;
+        return (jsp);
     }
-    for (int a = 0; a < (size - 1); a += 1) {
-        lulu->popo[lulu->louis] = 'p';
-        lulu->popo[lulu->louis + 1] = 'a';
-        lulu->popo[lulu->louis + 2] = ' ';
-        lulu->louis += 3;
-    if (lulu->louis > 99997) {
-        write(1, lulu->popo , lulu->louis);
-        lulu->louis = 0;
-    }
-    }
-    write(1, lulu->popo , lulu->louis);
-    write(1, "pa", 2);
+    return (jsp);
 }
 
 void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
@@ -46,28 +31,13 @@ void    my_amazing_sorter(int *array, int size, int *array2, lulu_t *lulu)
     for (int temp = 0; temp != size - 1; temp += 1) {
         nbr_min = nbr_min_position(array, size);
         for (int a = 0; a != nbr_min; a += 1) {
-            if (array[0] == 36)
-                jsp += 1;
+            jsp = add_or_not(array, jsp);
             rotate_left(array, size);
         }
         for (int b = 0; b + jsp < nbr_min; b += 1) {
-            lulu->popo[lulu->louis] = 'r';
-            lulu->popo[lulu->louis + 1] = 'a';
-            lulu->popo[lulu->louis + 2] = ' ';
-            lulu->louis += 3;
-            if (lulu->louis > 99997) {
-                write(1, lulu->popo , lulu->louis);
-                lulu->louis = 0;
-            }
+            ra(lulu);
         }
-        lulu->popo[lulu->louis] = 'p';
-        lulu->popo[lulu->louis + 1] = 'b';
-        lulu->popo[lulu->louis + 2] = ' ';
-        lulu->louis += 3;
-        if (lulu->louis > 99997) {
-            write(1, lulu->popo , lulu->louis);
-            lulu->louis = 0;
-        }
+        pb(lulu);
         array2[size - 1 - temp] = array[0];
         array[0] = 36;
         jsp = 0;
@@ -91,25 +61,20 @@ int main(int ac, char **av)
     int *array;
     int *arry2;
     lulu_t lulu;
-    lulu.popo = malloc(sizeof(char) * 100000);
+    lulu.popo = malloc(sizeof(char) * 500000);
     lulu.louis = 0;
 
     if (ac == 1)
         return (84);
-    if (ac == 2) {
-        write(1 , "\n", 1);
-        return (0);
-    }
     array = malloc(sizeof(int) * (ac - 1));
     arry2 = malloc(sizeof(int) * (ac - 1));
     array = array_empty(array, ac, av);
-    if (array_good(array, ac - 1) == 0) {
+    if (ac == 2 || array_good(array, ac - 1) == 0) {
         write(1 , "\n", 1);
         return (0);
     }
     my_amazing_sorter(array, (ac - 1), arry2, &lulu);
     write(1, "\n", 1);
     free (lulu.popo);
-    
     return (0);
 }

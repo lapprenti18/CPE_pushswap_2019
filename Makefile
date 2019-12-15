@@ -7,6 +7,7 @@
 
 SRC	=	my_amazing_sorter.c	\
 		operation.c	\
+		add_struct.c	\
 
 NAME	=	push_swap
 

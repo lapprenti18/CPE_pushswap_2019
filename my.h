@@ -27,3 +27,7 @@ int    *rotate_right(int *array, int size);
 int    *rotate_left(int *array, int size);
 int    array_good(int *array, int size);
 int    nbr_min_position(int *array,  int size);
+void    pb(lulu_t *lulu);
+void    pa(lulu_t *lulu);
+void    ra(lulu_t *lulu);
+void    display(int size, lulu_t *lulu);
